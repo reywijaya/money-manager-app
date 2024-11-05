@@ -7,5 +7,5 @@ interface ExpenseRepository {
     suspend fun insertExpense(expense: ExpenseEntity)
     suspend fun updateExpense(expense: ExpenseEntity)
     suspend fun deleteExpense(expense: ExpenseEntity)
-    fun getAllExpenses(startDate: Long, endDate: Long): Flow<List<ExpenseEntity>>
+    fun getAllExpenses(userStartDate: Long? = null, userEndDate: Long? = null): Flow<List<ExpenseEntity>>
 }

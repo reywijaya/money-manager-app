@@ -2,6 +2,7 @@ package com.example.moneymanager.data.repository
 
 import com.example.moneymanager.data.local.database.dao.BudgetDao
 import com.example.moneymanager.data.local.model.BudgetEntity
+import com.example.moneymanager.utils.getDefaultStartDate
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -19,9 +20,13 @@ class BudgetRepositoryImpl @Inject constructor(private val budgetDao: BudgetDao)
     }
 
     override fun getAllBudgetPerMonth(
-        startDate: Long,
-        endDate: Long
+        startDate: Long?,
+        endDate: Long?
     ): Flow<List<BudgetEntity>> {
-        return budgetDao.getAllMonthlyBudget()
+
+        val startDate = startDate ?: getDefaultStartDate()
+        val endDate = endDate ?: System.currentTimeMillis()
+
+        return budgetDao.getAllMonthlyBudget(startDate, endDate)
     }
 }

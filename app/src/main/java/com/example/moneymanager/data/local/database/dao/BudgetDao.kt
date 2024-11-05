@@ -24,6 +24,6 @@ interface BudgetDao {
     @Delete
     suspend fun deleteMonthlyBudget(budget: BudgetEntity)
 
-    @Query("SELECT * FROM budgets")
-    fun getAllMonthlyBudget(): Flow<List<BudgetEntity>>
+    @Query("SELECT * FROM budgets WHERE budget_date BETWEEN :startDate AND :endDate")
+    fun getAllMonthlyBudget(startDate: Long, endDate: Long): Flow<List<BudgetEntity>>
 }

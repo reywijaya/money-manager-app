@@ -24,10 +24,8 @@ data class BudgetEntity(
     // foreign key for category entity
     @ColumnInfo(name = "category_id")
     val categoryId: Int,
-    @ColumnInfo(name = "start_date")
-    val startDate: Long,
-    @ColumnInfo(name = "end_date")
-    val endDate: Long,
     @ColumnInfo(name = "budget_amount")
-    val budgetAmount: Double
+    val budgetAmount: Double,
+    @ColumnInfo(name = "budget_date")
+    val budgetDate: Long
 )
