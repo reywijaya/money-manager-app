@@ -1,6 +1,8 @@
 package com.example.moneymanager.ui.screens.navigation.bottom
 
 import androidx.compose.foundation.Image
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -40,9 +42,10 @@ fun BottomNavigationBar(navController: NavController) {
                     }
                 },
                 icon = {
-                    Image(
+                    Icon(
                         painter = painterResource(if (selectedItem == index) item.selectedIcon else item.unselectedIcon),
-                        contentDescription = item.label
+                        contentDescription = item.label,
+                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             )
