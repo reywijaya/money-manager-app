@@ -54,6 +54,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    // navigation
+    implementation(libs.androidx.navigation.compose)
+
     // room
     implementation(libs.androidx.room.runtime)
     annotationProcessor("androidx.room:room-compiler:$roomVersion")

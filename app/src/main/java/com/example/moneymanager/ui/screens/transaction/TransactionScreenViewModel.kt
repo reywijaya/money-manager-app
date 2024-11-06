@@ -1,19 +1,16 @@
-package com.example.moneymanager.ui.screens.expense
+package com.example.moneymanager.ui.screens.transaction
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moneymanager.data.local.model.ExpenseEntity
 import com.example.moneymanager.data.repository.ExpenseRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class ExpenseScreenViewModel @Inject constructor(private val expenseRepository: ExpenseRepository) :
+class TransactionScreenViewModel(private val expenseRepository: ExpenseRepository) :
     ViewModel() {
 
     private val _expenses = MutableStateFlow<List<ExpenseEntity>>(emptyList())
